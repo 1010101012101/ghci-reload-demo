@@ -1,7 +1,9 @@
 ghci-reload-demo
 =====
 
-A demo of using GHCi as a persistent development environment.
+A demo of using GHCi as a persistent development environment. This
+example code uses a Yesod/Warp web server as a demo because it's
+simple to setup but a very common real-world use-case.
 
 The idea is that you have two main modules: `Main` and
 `DevelMain`. The former for production, the latter for
