@@ -102,10 +102,11 @@ getReloadR =
      dupChan reload >>= readChan
 ```
 
-This simply clones the channel and then waits for a new event. As soon
-as a new event comes in the web handler returns and the script will
-refresh the page. Remember that earlier we read the channel from the
-foreign store and then write unit onto it:
+This simply clones the channel (cloning in effect creates a broadcast
+to multiple readers, in this case; tabs in your browser) and then
+waits for a new event. As soon as a new event comes in the web handler
+returns and the script will refresh the page. Remember that earlier we
+read the channel from the foreign store and then write unit onto it:
 
 ``` haskell
 c <- readStore (Store 0)
