@@ -43,7 +43,7 @@ forkIO
                 handler req))
 ```
 
-## Emacs's role
+## IDE's role
 
 Emacs, or your-editor-of-choice, can have some keybinding for "update
 code". This will run the following in the GHCi process:
@@ -69,6 +69,15 @@ update =
             app <- toWaiApp (Piggies c)
             writeIORef ref app
             writeChan c ()
+```
+
+Emacs's haskell-mode
+[already supports this](https://github.com/haskell/haskell-mode/blob/5a3a9966bc810da2b5988ac819b8f734b6ae9aa9/haskell-process.el#L1307),
+so you just need to run `M-x haskell-process-reload-devel-main`, or,
+for example, as a keybinding:
+
+``` lisp
+(define-key haskell-mode-map (kbd "f12") 'haskell-process-reload-devel-main)
 ```
 
 ## Browser's role
