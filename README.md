@@ -75,8 +75,7 @@ update =
 
 Emacs's haskell-mode
 [already supports this](https://github.com/haskell/haskell-mode/blob/5a3a9966bc810da2b5988ac819b8f734b6ae9aa9/haskell-process.el#L1307),
-so you just need to run `M-x haskell-process-reload-devel-main`, or,
-for example, as a keybinding:
+so you just need to setup a keybinding, e.g.
 
 ``` lisp
 (define-key haskell-mode-map (kbd "f12") 'haskell-process-reload-devel-main)
