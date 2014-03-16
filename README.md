@@ -5,6 +5,9 @@ A demo of using GHCi as a persistent development environment. This
 example code uses a Yesod/Warp web server as a demo because it's
 simple to setup but a very common real-world use-case.
 
+This project is runnable by simply loading `DevelMain` in GHCi. You
+can compile it with Cabal, but that's not the point of this demo.
+
 The idea is that you have two main modules: `Main` and
 `DevelMain`. The former for production, the latter for
 development. `DevelMain` starts your server and manages updates to the

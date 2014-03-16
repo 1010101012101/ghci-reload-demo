@@ -2,8 +2,11 @@
 
 module Main where
 
+import Control.Concurrent
 import Foundation
 import Yesod
 
 -- | Normal production main.
-main = warpEnv Piggies
+main :: IO ()
+main = do c <- newChan
+          warpEnv (Piggies c)
