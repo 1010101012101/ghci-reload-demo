@@ -12,27 +12,31 @@ import Network.Wai.Handler.Warp
 import Yesod
 import Yesod.Static
 
--- | Launches the new development server and returns a foreign store
+-- | Launches the new development server and makes a foreign store
 -- to the IORef with the application in it, for later update.
-main :: IO (Store (IORef Application))
+main :: IO ()
 main =
-  do app <- toWaiApp Piggies
+  do c <- newChan
+     app <- toWaiApp (Piggies c)
      ref <- newIORef app
      tid <- forkIO
               (runSettings
                 defaultSettings { settingsPort = 1990 }
                 (\req -> do handler <- readIORef ref
                             handler req))
-     newStore ref
+     _ <- newStore c
+     _ <- newStore ref
+     return ()
 
 -- | Update the server, start it if not running.
-update :: IO (Store (IORef Application))
+update :: IO ()
 update =
-  do m <- lookupStore 0
+  do m <- lookupStore 1
      case m of
        Nothing -> main
        Just store ->
          do ref <- readStore store
-            app <- toWaiApp Piggies
+            c <- readStore (Store 0)
+            app <- toWaiApp (Piggies c)
             writeIORef ref app
-            return store
+            writeChan c ()
