@@ -5,6 +5,8 @@ A demo of using GHCi as a persistent development environment. This
 example code uses a Yesod/Warp web server as a demo because it's
 simple to setup but a very common real-world use-case.
 
+Associated blog post [is here.](http://chrisdone.com/posts/ghci-reload)
+
 This project is runnable by simply loading `DevelMain` in GHCi. You
 can compile it with Cabal, but that's not the point of this demo.
 
