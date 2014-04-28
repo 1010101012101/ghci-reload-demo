@@ -9,8 +9,8 @@ import Control.Concurrent
 import Data.IORef
 import Foreign.Store
 import Network.Wai.Handler.Warp
-import Yesod
-import Yesod.Static
+-- import Yesod
+-- import Yesod.Static
 
 -- | Launches the new development server and makes a foreign store
 -- to the IORef with the application in it, for later update.
@@ -19,9 +19,9 @@ main =
   do c <- newChan
      app <- toWaiApp (Piggies c)
      ref <- newIORef app
-     tid <- forkIO
+     _tid <- forkIO
               (runSettings
-                defaultSettings { settingsPort = 1990 }
+                (setPort 1990 defaultSettings)
                 (\req -> do handler <- readIORef ref
                             handler req))
      _ <- newStore c
