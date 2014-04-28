@@ -16,5 +16,8 @@ executable ghci-reload-demo
   ghc-options:       -Wall -O2
   main-is:           Main.hs
   build-depends:     base >= 4 && < 5,
+                     lifted-base,
+                     foreign-store,
                      yesod,
-                     lifted-base
+                     yesod-static,
+                     warp
