@@ -83,7 +83,7 @@ Emacs's haskell-mode
 so you just need to setup a keybinding, e.g.
 
 ``` lisp
-(define-key haskell-mode-map (kbd "f12") 'haskell-process-reload-devel-main)
+(define-key haskell-mode-map (kbd "<f12>") 'haskell-process-reload-devel-main)
 ```
 
 ## Browser's role
