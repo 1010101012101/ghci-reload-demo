@@ -15,6 +15,10 @@ The idea is that you have two main modules: `Main` and
 development. `DevelMain` starts your server and manages updates to the
 running code.
 
+**Tip**:
+  [remember to set flags](http://chrisdone.com/posts/making-ghci-fast)
+  if you want to avoid reloading all modules.
+
 ## GHCi's role
 
 GHCi's job here is to run the warp process in a separate thread and
